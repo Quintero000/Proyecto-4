@@ -1,0 +1,157 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 26px 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    color: #000000;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Tarjeta principal */
+.contenedor {
+    width: 100%;
+    max-width: 900px;
+    padding: 42px 48px 28px;
+    border: 2.5px solid #002499;
+    border-radius: 25px;
+    text-align: center;
+}
+
+/* Título y subtítulo */
+.encabezado h1 {
+    margin: 0 0 12px;
+    /*elimina los márgenes superior y laterales y deja 12 px debajo*/
+    font-size: 30px;
+    color: #002499
+}
+
+.encabezado p {
+    color: #999999;
+    font-size: 14px;
+}
+
+/* Línea de tiempo */
+.linea-tiempo {
+    position: relative;
+    /*permite posicionar elementos dentro de esta sección tomando como referencia su propia posición.*/
+    margin: 34px auto 26px;
+}
+
+.linea-tiempo::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 36%;
+    /*Sitúa su borde izquierdo al 36 % del ancho del contenedor.*/
+    width: 1.5px;
+    background-color: #002499;
+}
+
+.evento {
+    position: relative;
+    display: grid;
+    /*un sistema de distribución en filas y columnas.*/
+    grid-template-columns: 32% 8% 60%;
+    align-items: center;
+    min-height: 52px;
+    text-align: left;
+}
+
+.evento time {
+    padding-right: 14px;
+    color: #999999;
+    font-size: 13px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.punto {
+    z-index: 1;
+    justify-self: center;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #002499;
+}
+
+
+
+/* Botón visual */
+.boton {
+    display: inline-block;
+    min-width: 220px;
+    margin-top: 0;
+    padding: 12px 22px;
+    border-radius: 9px;
+    background-color: #002499;
+    color: #ffffff;
+    font-size: 12px;
+}
+
+.boton:hover,
+.boton:focus-visible {
+    background-color: #0435d8;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 600px) {
+    body {
+        align-items: flex-start;
+        padding: 16px 12px;
+    }
+
+    .contenedor {
+        padding: 30px 18px 24px;
+        border-radius: 20px;
+    }
+
+    .encabezado p {
+        font-size: 13px;
+    }
+
+    .linea-tiempo {
+        margin-top: 28px;
+        margin-bottom: 24px;
+    }
+
+    .linea-tiempo::before {
+        left: 18px;
+    }
+
+    .evento {
+        grid-template-columns: 38px minmax(0, 1fr);
+        grid-template-rows: auto auto;
+        min-height: 78px;
+        align-items: start;
+        padding: 8px 0;
+    }
+
+    .evento time {
+        grid-column: 2;
+        grid-row: 1;
+        padding: 0 0 5px 14px;
+        text-align: left;
+        white-space: normal;
+        font-size: 12px;
+    }
+
+    .punto {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+        margin-top: 3px;
+    }
+
+
+
+    .boton {
+        min-width: 0;
+        max-width: 100%;
+    }
+}
+
